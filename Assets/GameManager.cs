@@ -2,33 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public float dimesionTransitionTimer = 0.5f;
     public bool isAnotherDimension = false;
 
+    [Header("Tile set")]
     public GameObject tilesetOurDimension;
     public GameObject tilesetAnotherDimension;
-
     public GameObject backgroundOurDimension;
     public GameObject backgroundAnotherDimension;
 
+    [Header("Level set")]
+    public GameObject playerPrefab;
     public GameObject spawnPoint;
     public GameObject endLevel;
 
     public Animator playerAnimator;
 
+    private void Awake()
+    {
+        PlayerRespawn();
+    }
+
     private void Start()
     {
-        tilesetOurDimension.SetActive(true);
-        tilesetAnotherDimension.SetActive(false);
-
-        backgroundOurDimension.SetActive(true);
-        backgroundAnotherDimension.SetActive(false);
-
-        playerAnimator.SetBool("isAnotherDim", false);
+        playerAnimator = GameObject.Find("Player(Clone)").GetComponentInChildren<Animator>();
+        ChangeTileSet();
     }
+
     void Update()
     {
         if (dimesionTransitionTimer > 0)
@@ -43,29 +47,27 @@ public class GameManager : MonoBehaviour
         }        
     }
 
-    void ChangeTileSet() 
+    void ChangeTileSet()
     {
-        if(isAnotherDimension)
-        {
-            tilesetOurDimension.SetActive(true);
-            tilesetAnotherDimension.SetActive(false);
+        tilesetOurDimension.SetActive(!isAnotherDimension);
+        tilesetAnotherDimension.SetActive(isAnotherDimension);
 
-            backgroundOurDimension.SetActive(true);
-            backgroundAnotherDimension.SetActive(false);
+        backgroundOurDimension.SetActive(!isAnotherDimension);
+        backgroundAnotherDimension.SetActive(isAnotherDimension);
 
-            playerAnimator.SetBool("isAnotherDim", false);
-            Debug.Log("Super");
-        }
-        else 
-        {
-            tilesetOurDimension.SetActive(false);
-            tilesetAnotherDimension.SetActive(true);
+        playerAnimator.SetBool("isAnotherDim", isAnotherDimension);
+    }
 
-            backgroundOurDimension.SetActive(false);
-            backgroundAnotherDimension.SetActive(true);
+    public void PlayerRespawn()
+    {
+        Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
+    }
 
-            playerAnimator.SetBool("isAnotherDim", true);
-            Debug.Log("Zaluper");
-        }
+    public void ChangeLevel(int sceneNumber)
+    {
+        string sceneName = (SceneManager.GetActiveScene().name); 
+        sceneName = sceneName.Substring(0, sceneName.Length - 1); 
+
+        SceneManager.LoadScene(sceneName + sceneNumber.ToString());
     }
 }

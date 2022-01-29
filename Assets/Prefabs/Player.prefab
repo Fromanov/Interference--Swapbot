@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 8836312879834155899}
   - component: {fileID: 8883040914729659735}
   - component: {fileID: 1002850180289832293}
-  - component: {fileID: 3430515409920983684}
   - component: {fileID: 8931207533319756822}
   - component: {fileID: 8932413926429105628}
+  - component: {fileID: 5899754622359819893}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -53,6 +53,7 @@ MonoBehaviour:
   minGroundNormalY: 0.9
   gravityModifier: 1
   velocity: {x: 0, y: 0}
+  gameManager: {fileID: 0}
   jumpAudio: {fileID: 8300000, guid: 67975c08d56ceb147bad38572d805aa8, type: 3}
   respawnAudio: {fileID: 8300000, guid: e18959d46b63f3c4c8cc020a433cf848, type: 3}
   ouchAudio: {fileID: 8300000, guid: 6c05149e5a2fba64ba172e25a61074b7, type: 3}
@@ -61,7 +62,7 @@ MonoBehaviour:
   jumpState: 0
   collider2d: {fileID: 8931207533319756822}
   audioSource: {fileID: 1002850180289832293}
-  health: {fileID: 3430515409920983684}
+  health: {fileID: 5899754622359819893}
   controlEnabled: 1
 --- !u!212 &8719921936474874379
 SpriteRenderer:
@@ -165,7 +166,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5833894e2899f1840ac04193ca462e39, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -251,19 +252,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3430515409920983684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8932413926429105603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffad43bb006db4856a9c527b89b48db9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 1
 --- !u!61 &8931207533319756822
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -306,4 +294,18 @@ MonoBehaviour:
   boxMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  side: {x: 0, y: 0}
   gameManager: {fileID: 0}
+--- !u!114 &5899754622359819893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8932413926429105603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffad43bb006db4856a9c527b89b48db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 1

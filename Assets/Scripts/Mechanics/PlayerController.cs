@@ -14,6 +14,9 @@ namespace Platformer.Mechanics
     /// </summary>
     public class PlayerController : KinematicObject
     {
+        public GameManager gameManager;
+
+
         public AudioClip jumpAudio;
         public AudioClip respawnAudio;
         public AudioClip ouchAudio;
@@ -21,16 +24,18 @@ namespace Platformer.Mechanics
         /// <summary>
         /// Max horizontal speed of the player.
         /// </summary>
-        public float maxSpeed = 7;
+        public float maxSpeed = 3;
         /// <summary>
         /// Initial jump velocity at the start of a jump.
         /// </summary>
-        public float jumpTakeOffSpeed = 7;
+        public float jumpTakeOffSpeed = 4;
 
         public JumpState jumpState = JumpState.Grounded;
         private bool stopJump;
-        /*internal new*/ public Collider2D collider2d;
-        /*internal new*/ public AudioSource audioSource;
+        /*internal new*/
+        public Collider2D collider2d;
+        /*internal new*/
+        public AudioSource audioSource;
         public Health health;
         public bool controlEnabled = true;
 
@@ -49,6 +54,8 @@ namespace Platformer.Mechanics
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
+
+            gameManager = FindObjectOfType<GameManager>();
         }
 
         protected override void Update()
@@ -70,6 +77,16 @@ namespace Platformer.Mechanics
             }
             UpdateJumpState();
             base.Update();
+        }
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+
+            
+            if (gameManager.isAnotherDimension && collision.gameObject.CompareTag("Items"))
+            {
+                velocity.y = 8f;
+                jumpState = JumpState.InFlight;
+            }
         }
 
         void UpdateJumpState()
@@ -124,6 +141,17 @@ namespace Platformer.Mechanics
                 spriteRenderer.flipX = true;            
 
             targetVelocity = move * maxSpeed;
+        }
+
+        public void OnTriggerEnter2D(Collider2D collision)
+        {
+            if(collision.gameObject.tag == "Level Exit")
+            {
+                GameManager getOut = FindObjectOfType<GameManager>();
+                int number = collision.gameObject.GetComponent<LevelExit>().nextLevel;
+                getOut.ChangeLevel(number);
+                Debug.Log("Find way out");
+            }
         }
 
         public enum JumpState
