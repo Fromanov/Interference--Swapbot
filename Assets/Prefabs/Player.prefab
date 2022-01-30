@@ -58,7 +58,7 @@ MonoBehaviour:
   respawnAudio: {fileID: 8300000, guid: e18959d46b63f3c4c8cc020a433cf848, type: 3}
   ouchAudio: {fileID: 8300000, guid: 6c05149e5a2fba64ba172e25a61074b7, type: 3}
   maxSpeed: 3
-  jumpTakeOffSpeed: 4
+  jumpTakeOffSpeed: 5
   jumpState: 0
   collider2d: {fileID: 8931207533319756822}
   audioSource: {fileID: 1002850180289832293}

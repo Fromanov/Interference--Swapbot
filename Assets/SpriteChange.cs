@@ -13,6 +13,7 @@ public class SpriteChange : MonoBehaviour
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        boxR.sprite = spriteD;
     }
 
     private void Update()
@@ -27,11 +28,11 @@ public class SpriteChange : MonoBehaviour
     {
         if(gameManager.isAnotherDimension)
         {
-            boxR.sprite = spriteD;
+            boxR.sprite = spriteAnotherDimension;
         }
         else
         {
-            boxR.sprite = spriteAnotherDimension;
+            boxR.sprite = spriteD;
         }
     }
 }

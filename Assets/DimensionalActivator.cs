@@ -22,6 +22,13 @@ public class DimensionalActivator : MonoBehaviour
 
     void ChangeBoxActivity()
     {
-       gameObject.SetActive(gameManager.isAnotherDimension);
+        if(gameManager.isAnotherDimension)
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
     }
 }

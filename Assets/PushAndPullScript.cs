@@ -27,7 +27,7 @@ public class PushAndPullScript : MonoBehaviour
 
     void Update()
     {
-        if (gameManager.isAnotherDimension)
+        if (!gameManager.isAnotherDimension)
         {
             if (Input.GetKeyDown(KeyCode.E))
                 side = gameManager.playerAnimator.gameObject.GetComponent<SpriteRenderer>().flipX ? Vector2.left : Vector2.right;

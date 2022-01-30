@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4127330920446717922}
   m_Layer: 13
   m_Name: Box
-  m_TagString: Jumpbox
+  m_TagString: Items
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxR: {fileID: 5928083454713146676}
-  spriteD: {fileID: 21300000, guid: 5cecd5cf70c519246befd0891f3dc853, type: 3}
-  spriteAnotherDimension: {fileID: 21300000, guid: c3851803f9a995543ae00b9c7a43e9e4,
+  spriteD: {fileID: 21300000, guid: c3851803f9a995543ae00b9c7a43e9e4, type: 3}
+  spriteAnotherDimension: {fileID: 21300000, guid: 5cecd5cf70c519246befd0891f3dc853,
     type: 3}

@@ -80,7 +80,7 @@ namespace Platformer.Mechanics
         }
         private void OnCollisionEnter2D(Collision2D collision)
         {            
-            if (gameManager.isAnotherDimension && collision.gameObject.CompareTag("Jumpbox"))
+            if (gameManager.isAnotherDimension && collision.gameObject.CompareTag("Items"))
             {
                 velocity.y = 8f;
                 jumpState = JumpState.InFlight;
