@@ -13,14 +13,13 @@ public class BoxPull : MonoBehaviour
 
 	public int mode;
 	public int colliding;
-	// Use this for initialization
+	
 	void Start()
 	{
 		xPos = transform.position.x;
 		lastPos = transform.position;
 	}
-
-	// Update is called once per frame
+	
 	void FixedUpdate()
 	{
 		if (mode == 0)

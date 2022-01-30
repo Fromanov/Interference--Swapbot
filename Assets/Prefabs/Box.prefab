@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5814681003473212157}
   - component: {fileID: 5814681003473212158}
   - component: {fileID: 5814681003473212159}
+  - component: {fileID: 4127330920446717922}
   m_Layer: 13
   m_Name: Box
-  m_TagString: Items
+  m_TagString: Jumpbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 1907945055
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 5cecd5cf70c519246befd0891f3dc853, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3851803f9a995543ae00b9c7a43e9e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -169,3 +170,19 @@ MonoBehaviour:
   lastPos: {x: 0, y: 0, z: 0}
   mode: 0
   colliding: 0
+--- !u!114 &4127330920446717922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5814681003473212156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f44f24b4d5a32c4ca26123d6ada54f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxR: {fileID: 5928083454713146676}
+  spriteD: {fileID: 21300000, guid: 5cecd5cf70c519246befd0891f3dc853, type: 3}
+  spriteAnotherDimension: {fileID: 21300000, guid: c3851803f9a995543ae00b9c7a43e9e4,
+    type: 3}

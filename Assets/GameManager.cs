@@ -28,8 +28,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start()
-    {
-        playerAnimator = GameObject.Find("Player(Clone)").GetComponentInChildren<Animator>();
+    {        
         ChangeTileSet();
     }
 
@@ -49,6 +48,8 @@ public class GameManager : MonoBehaviour
 
     void ChangeTileSet()
     {
+        playerAnimator = GameObject.Find("Player(Clone)").GetComponentInChildren<Animator>();
+
         tilesetOurDimension.SetActive(!isAnotherDimension);
         tilesetAnotherDimension.SetActive(isAnotherDimension);
 

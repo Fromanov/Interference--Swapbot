@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Items
   - Level Exit
+  - Jumpbox
   layers:
   - Default
   - TransparentFX

@@ -53,11 +53,20 @@ public class PushAndPullScript : MonoBehaviour
             box.GetComponent<FixedJoint2D>().enabled = false;
             box.GetComponent<BoxPull>().beingPushed = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            side = Vector2.left;
+        }
+        else if(Input.GetKeyDown(KeyCode.D))
+        {
+            side = Vector2.right;
+        }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * distance);
-    }
+        Gizmos.DrawLine(transform.position, (Vector2)transform.position + side * transform.localScale.x * distance);
+    }    
 }
